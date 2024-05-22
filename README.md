@@ -1,5 +1,8 @@
 # Link: https://nickbennings.github.io/Weather-Forecasting-Website/
+<<<<<<< HEAD
 
+=======
+>>>>>>> 348876607acab654279b2fec2e2829cc11eda2f3
 # Weather Forecasting Website
 
 This is a simple weather forecasting website that allows users to input a city name and retrieve the current weather information using the OpenWeatherApp API.
