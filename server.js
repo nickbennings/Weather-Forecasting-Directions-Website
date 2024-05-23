@@ -10,7 +10,11 @@ http.createServer((req, res) => {
     const parsedUrl = url.parse(req.url, true);
     const pathname = parsedUrl.pathname;
 
+    console.log(`Received request for ${pathname}`); // Log the received request
+
     if (pathname === '/apikey') {
+        console.log(`API Key requested`); // Log when API key is requested
+        console.log(`API Key from .env: ${process.env.API_KEY}`); // Log the actual API key value
         res.writeHead(200, { 'Content-Type': 'application/json' });
         res.end(JSON.stringify({ apiKey: process.env.API_KEY }));
     } else {
