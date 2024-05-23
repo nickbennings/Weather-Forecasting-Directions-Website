@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(response => response.json())
         .then(data => {
             apiKey = data.apiKey;
+            console.log('API Key:', apiKey);  // Add this line to verify the API key is fetched
         })
         .catch(error => {
             console.error('Error fetching API key:', error);
