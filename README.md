@@ -38,7 +38,7 @@ This is a simple weather forecasting website that allows users to input a city n
 - OpenWeatherApp API
 
 ### Credits
-This project was created by [Your Name].
+This project was created by Nick Bennings.
 
 ### License
 This project is licensed under the MIT License. See the LICENSE file for details.
