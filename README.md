@@ -31,7 +31,7 @@ This is a simple weather forecasting website that allows users to input a city n
 
 ## Credits
 
-This project was created by [Your Name].
+This project was created by Nick Bennings
 
 ## License
 
