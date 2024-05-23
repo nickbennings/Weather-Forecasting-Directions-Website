@@ -3,52 +3,52 @@ document.addEventListener('DOMContentLoaded', () => {
     const cityInput = document.getElementById('city');
     const weatherResult = document.getElementById('weather-result');
 
+    // Fetch the API key from the server
+    let apiKey;
+    fetch('/apikey')
+        .then(response => response.json())
+        .then(data => {
+            apiKey = data.apiKey;
+        })
+        .catch(error => {
+            console.error('Error fetching API key:', error);
+        });
+
     form.addEventListener('submit', async (event) => {
         event.preventDefault();
 
         const city = cityInput.value.trim();
 
         if (city === '') {
-            showAlert('Please enter a city name', 'danger');
+            alert('Please enter a city name');
             return;
         }
 
         try {
-            const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=YOUR_API_KEY`);
+            const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`);
             const data = await response.json();
 
             if (response.ok) {
-                const temperature = Math.round(data.main.temp - 273.15);
+                const temperature = data.main.temp;
                 const description = data.weather[0].description;
-                showWeather(`${temperature}°C, ${description}`);
+                const icon = data.weather[0].icon;
+                const humidity = data.main.humidity;
+                const windSpeed = data.wind.speed;
+
+                weatherResult.innerHTML = `
+                    <h2>Weather in ${city}</h2>
+                    <img src="https://openweathermap.org/img/wn/${icon}.png" alt="${description}">
+                    <p>Temperature: ${temperature}°C</p>
+                    <p>Description: ${description}</p>
+                    <p>Humidity: ${humidity}%</p>
+                    <p>Wind Speed: ${windSpeed} m/s</p>
+                `;
             } else {
-                showError('Error: Unable to fetch weather data');
+                weatherResult.innerHTML = `<p>Error: ${data.message}</p>`;
             }
         } catch (error) {
             console.error('Error fetching weather data:', error);
-            showError('Error: Unable to fetch weather data');
+            weatherResult.innerHTML = 'Error: Unable to fetch weather data';
         }
     });
-
-    function showWeather(weatherInfo) {
-        weatherResult.innerHTML = `
-            <div class="alert alert-success" role="alert">
-                ${weatherInfo}
-            </div>
-        `;
-    }
-
-    function showAlert(message, type) {
-        const alertDiv = document.createElement('div');
-        alertDiv.className = `alert alert-${type}`;
-        alertDiv.setAttribute('role', 'alert');
-        alertDiv.textContent = message;
-
-        weatherResult.innerHTML = '';
-        weatherResult.appendChild(alertDiv);
-    }
-
-    function showError(errorMessage) {
-        showAlert(errorMessage, 'danger');
-    }
 });
