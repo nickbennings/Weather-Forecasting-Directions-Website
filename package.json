@@ -4,13 +4,9 @@
     "description": "Your project description",
     "main": "index.js",
     "scripts": {
-      "start": "node server.js"
+        "start": "node server.js"
     },
     "dependencies": {
-     
-    },
-    "devDependencies": {
-     
+        "dotenv": "^16.4.5"
     }
-  }
-  
+}
