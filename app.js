@@ -3,13 +3,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const cityInput = document.getElementById('city');
     const weatherResult = document.getElementById('weather-result');
 
-    // Fetch the API key from the server
     let apiKey;
     fetch('/apikey')
         .then(response => response.json())
         .then(data => {
             apiKey = data.apiKey;
-            console.log('API Key:', apiKey);  // Add this line to verify the API key is fetched
+            console.log('API Key:', apiKey);  // Verify the API key is fetched
         })
         .catch(error => {
             console.error('Error fetching API key:', error);
