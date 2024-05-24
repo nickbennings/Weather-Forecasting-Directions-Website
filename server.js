@@ -4,6 +4,8 @@ const fs = require('fs');
 const path = require('path');
 const url = require('url');
 
+console.log('Environment Variables:', process.env);
+
 const PORT = process.env.PORT || 3000;
 
 http.createServer((req, res) => {
