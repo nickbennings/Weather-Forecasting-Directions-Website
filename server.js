@@ -14,19 +14,16 @@ http.createServer((req, res) => {
         res.writeHead(200, { 'Content-Type': 'application/json' });
         res.end(JSON.stringify({ apiKey: process.env.API_KEY }));
     } else {
-        let filePath = path.join(__dirname, 'index.html');
-        if (pathname !== '/') {
-            filePath = path.join(__dirname, pathname);
-        }
+        const filePath = path.join(__dirname, 'index.html');
 
         fs.readFile(filePath, (err, data) => {
             if (err) {
-                res.writeHead(404);
-                res.end('404 Not Found');
-            } else {
-                res.writeHead(200, { 'Content-Type': 'text/html' });
-                res.end(data);
+                res.writeHead(500);
+                return res.end('Error loading index.html');
             }
+
+            res.writeHead(200, { 'Content-Type': 'text/html' });
+            res.end(data);
         });
     }
 }).listen(PORT, () => {

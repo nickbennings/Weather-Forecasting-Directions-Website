@@ -3,16 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const cityInput = document.getElementById('city');
     const weatherResult = document.getElementById('weather-result');
 
-    let apiKey;
-    fetch('/apikey')
-        .then(response => response.json())
-        .then(data => {
-            apiKey = data.apiKey;
-            console.log('API Key:', apiKey);  // Verify the API key is fetched
-        })
-        .catch(error => {
-            console.error('Error fetching API key:', error);
-        });
+    // Directly assign the API key
+    const apiKey = '897f410d6b0153cbd94dd175f70cd132';
 
     form.addEventListener('submit', async (event) => {
         event.preventDefault();
@@ -25,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         try {
-            const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`);
+            const response = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`);
             const data = await response.json();
 
             if (response.ok) {
@@ -37,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 weatherResult.innerHTML = `
                     <h2>Weather in ${city}</h2>
-                    <img src="https://openweathermap.org/img/wn/${icon}.png" alt="${description}">
+                    <img src="http://openweathermap.org/img/wn/${icon}.png" alt="${description}">
                     <p>Temperature: ${temperature}°C</p>
                     <p>Description: ${description}</p>
                     <p>Humidity: ${humidity}%</p>
