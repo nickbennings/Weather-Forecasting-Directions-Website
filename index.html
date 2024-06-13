@@ -4,14 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Forecasting</title>
+    <link rel="stylesheet" href="styles.css"> <!-- If you have a CSS file, include it here -->
 </head>
 <body>
-    <h1>Weather Forecasting</h1>
-    <form id="weather-form">
-        <input type="text" id="city" placeholder="Enter city name" required>
-        <button type="submit">Get Weather</button>
-    </form>
-    <div id="weather-result"></div>
+    <header>
+        <h1>Weather Forecasting</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <form id="weather-form">
+            <input type="text" id="city" placeholder="Enter city name" required>
+            <button type="submit">Get Weather</button>
+        </form>
+        <div id="weather-result"></div>
+    </main>
+    <footer>
+        <!-- Footer content if needed -->
+    </footer>
     <script src="app.js"></script>
 </body>
 </html>
