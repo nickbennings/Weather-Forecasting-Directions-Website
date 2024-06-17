@@ -23,6 +23,23 @@ header h1, footer p {
     text-align: center;
 }
 
+header nav {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+header nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+header nav a:hover {
+    text-decoration: underline;
+}
+
 main {
     display: flex;
     flex-direction: column;
@@ -57,7 +74,12 @@ button:hover {
     background-color: #0056b3;
 }
 
-#weather-result {
+#weather-result, #forecast-result {
     margin-top: 2rem;
     font-size: 1.2rem;
+    text-align: center;
+}
+
+#forecast-result div {
+    margin-bottom: 1rem;
 }
