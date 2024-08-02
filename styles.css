@@ -1,97 +1,107 @@
-/* Reset CSS */
-* {
-    box-sizing: border-box;
+/* Base styles */
+body {
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-}
-
-/* Global Styles */
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f3f4f6;
+    background-color: #f4f4f4;
     color: #333;
-    line-height: 1.6;
 }
 
-/* Header and Footer Styles */
-header, footer {
-    background-color: #007bff;
+header {
+    background-color: #28a745; /* Updated to green */
     color: #fff;
     padding: 1rem;
-}
-
-header h1, footer p {
     text-align: center;
 }
 
-/* Nav Bar Styles */
-header nav {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin: 1rem 0;
+header h1 {
+    margin: 0;
 }
 
-header nav a {
+nav {
+    margin-top: 0.5rem;
+}
+
+nav a {
     color: #fff;
     text-decoration: none;
-    font-size: 1.2rem;
-    padding: 0.5rem 1rem;
-    transition: background-color 0.3s ease;
-}
-
-header nav a:hover {
-    background-color: #0056b3;
-    border-radius: 5px;
-}
-
-header nav a.active {
+    margin: 0 1rem;
     font-weight: bold;
-    border-bottom: 2px solid #fff;
 }
 
-/* Main Content Styles */
+nav a:hover {
+    text-decoration: underline;
+}
+
 main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: calc(100vh - 4rem);
+    padding: 2rem;
+}
+
+section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border-radius: 8px;
+}
+
+h2 {
+    border-bottom: 2px solid #28a745; /* Updated to green */
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+footer {
+    background-color: #28a745; /* Updated to green */
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
 
 form {
     margin-bottom: 2rem;
 }
 
-input[type="text"] {
-    padding: 1rem;
-    font-size: 1rem;
-    border: 2px solid #007bff;
-    border-radius: 5px;
-    margin-right: 1rem;
+form input[type="text"] {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    max-width: 400px;
 }
 
-button {
-    padding: 1rem 2rem;
-    font-size: 1rem;
-    border: none;
-    background-color: #007bff;
+form button {
+    background-color: #28a745; /* Updated to green */
     color: #fff;
-    border-radius: 5px;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    font-size: 1rem;
 }
 
-button:hover {
-    background-color: #0056b3;
+form button:hover {
+    background-color: #218838; /* Darker green on hover */
 }
 
-#weather-result, #forecast-result {
+#forecast-result {
     margin-top: 2rem;
-    font-size: 1.2rem;
-    text-align: center;
 }
 
 #forecast-result div {
+    padding: 1rem;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
     margin-bottom: 1rem;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+#forecast-result img {
+    vertical-align: middle;
+    margin-right: 0.5rem;
 }

@@ -20,15 +20,24 @@ document.addEventListener('DOMContentLoaded', () => {
             const data = await response.json();
 
             if (response.ok) {
-                let forecastHTML = `<h2>5-Day Forecast for ${city}</h2>`;
+                const dailyForecast = {};
                 data.list.forEach(item => {
-                    const date = new Date(item.dt * 1000);
-                    const temperature = item.main.temp;
-                    const description = item.weather[0].description;
-                    const icon = item.weather[0].icon;
+                    const date = new Date(item.dt * 1000).toDateString();
+                    if (!dailyForecast[date]) {
+                        dailyForecast[date] = {
+                            temperature: item.main.temp,
+                            description: item.weather[0].description,
+                            icon: item.weather[0].icon
+                        };
+                    }
+                });
+
+                let forecastHTML = `<h2>5-Day Forecast for ${city}</h2>`;
+                Object.keys(dailyForecast).forEach(date => {
+                    const { temperature, description, icon } = dailyForecast[date];
                     forecastHTML += `
                         <div>
-                            <p>${date.toDateString()}</p>
+                            <p>${date}</p>
                             <img src="https://openweathermap.org/img/wn/${icon}.png" alt="${description}">
                             <p>Temperature: ${temperature}°C</p>
                             <p>Description: ${description}</p>
