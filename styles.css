@@ -13,6 +13,7 @@ body {
     line-height: 1.6;
 }
 
+/* Header and Footer Styles */
 header, footer {
     background-color: #007bff;
     color: #fff;
@@ -23,6 +24,7 @@ header h1, footer p {
     text-align: center;
 }
 
+/* Nav Bar Styles */
 header nav {
     display: flex;
     justify-content: center;
@@ -34,12 +36,21 @@ header nav a {
     color: #fff;
     text-decoration: none;
     font-size: 1.2rem;
+    padding: 0.5rem 1rem;
+    transition: background-color 0.3s ease;
 }
 
 header nav a:hover {
-    text-decoration: underline;
+    background-color: #0056b3;
+    border-radius: 5px;
 }
 
+header nav a.active {
+    font-weight: bold;
+    border-bottom: 2px solid #fff;
+}
+
+/* Main Content Styles */
 main {
     display: flex;
     flex-direction: column;
@@ -68,6 +79,7 @@ button {
     color: #fff;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
