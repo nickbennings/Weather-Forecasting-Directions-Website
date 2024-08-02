@@ -2,7 +2,7 @@
 
 ## Weather Forecasting Website
 
-This is a simple weather forecasting website that allows users to input a city name and retrieve the current weather information using the OpenWeatherApp API.
+This is a simple weather forecasting website that allows users to input a city name and retrieve the current weather information using the OpenWeatherMap API.
 
 ### Features
 - Input field to enter a city name
@@ -37,7 +37,7 @@ This is a simple weather forecasting website that allows users to input a city n
 - JavaScript
 - Node.js
 - Express
-- OpenWeatherApp API
+- OpenWeatherMap API
 
 ### Credits
 This project was created by Nick Bennings.
