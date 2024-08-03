@@ -4,14 +4,19 @@ body {
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background-color: #f5f5f5;
+    background-color: #f5f5f5; /* Fallback color */
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    background-image: url('images/mountain1.jpg'); /* Path to the image */
+    background-size: cover; /* Cover the entire background */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-attachment: fixed; /* Make background fixed on scroll */
 }
 
 header {
-    background-color: #013220;
+    background-color: rgba(1, 50, 32, 0.8); /* Semi-transparent background */
     color: white;
     padding: 10px 0;
     text-align: center;
@@ -31,10 +36,15 @@ nav a {
 main {
     flex: 1;
     padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Slight shadow for better readability */
+    max-width: 800px;
+    margin: 20px auto;
 }
 
 footer {
-    background-color: #013220;
+    background-color: rgba(1, 50, 32, 0.8); /* Semi-transparent background */
     color: white;
     text-align: center;
     padding: 10px 0;
