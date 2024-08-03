@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         try {
-            const response = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`);
+            const response = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=imperial`);
             const data = await response.json();
 
             if (response.ok) {
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <div>
                             <p>${date}</p>
                             <img src="https://openweathermap.org/img/wn/${icon}.png" alt="${description}">
-                            <p>Temperature: ${temperature}°C</p>
+                            <p>Temperature: ${temperature}°F</p>
                             <p>Description: ${description}</p>
                         </div>
                     `;
