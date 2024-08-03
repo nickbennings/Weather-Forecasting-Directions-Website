@@ -36,37 +36,34 @@ nav a {
 main {
     flex: 1;
     padding: 20px;
-    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Slight shadow for better readability */
-    max-width: 800px;
     margin: 20px auto;
+    max-width: 800px; /* Ensure the content width is consistent */
 }
 
+/* Styling for weather info boxes */
+#weather-result, #forecast-result {
+    background-color: rgba(173, 216, 230, 0.8); /* Light blue with transparency */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Slight shadow for better readability */
+    margin: 20px 0; /* Margin around the boxes */
+}
+
+/* Styling for the About page info box */
+.about-info {
+    background-color: rgba(173, 216, 230, 0.8); /* Light blue with transparency */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Slight shadow for better readability */
+    margin: 20px 0; /* Margin around the boxes */
+}
+
+/* Footer styling */
 footer {
-    background-color: rgba(1, 50, 32, 0.8); /* Semi-transparent background */
+    background-color: rgba(1, 50, 32, 0.9); /* Increased opacity for better visibility */
     color: white;
     text-align: center;
     padding: 10px 0;
     margin-top: auto;
-}
-
-/* Forecast styling */
-#forecast-result {
-    background-color: white;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-#forecast-result div {
-    margin-bottom: 15px;
-}
-
-#forecast-result img {
-    vertical-align: middle;
-}
-
-#forecast-result h2, #forecast-result p {
-    margin: 5px 0;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3); /* Slight shadow to lift it from the background */
 }
