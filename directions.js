@@ -46,9 +46,9 @@ async function geocodeAddress(address) {
     return { lng: firstResult[0], lat: firstResult[1] };
 }
 
-// Function to convert meters to feet
-function metersToFeet(meters) {
-    return (meters * 3.28084).toFixed(2);
+// Function to convert meters to miles
+function metersToMiles(meters) {
+    return (meters / 1609.344).toFixed(2);
 }
 
 // Function to display directions on the page
@@ -60,8 +60,9 @@ function displayDirections(data) {
     const totalDuration = steps.reduce((total, step) => total + step.duration, 0);
     const totalTravelTime = Math.round(totalDuration / 60); // Convert seconds to minutes
 
+    // Update each step's distance to miles
     const directionsHtml = steps.map(step => `
-        <li>${step.instruction} (${metersToFeet(step.distance)} feet, ${Math.round(step.duration / 60)} minutes)</li>
+        <li>${step.instruction} (${metersToMiles(step.distance)} miles, ${Math.round(step.duration / 60)} minutes)</li>
     `).join('');
     
     directionsContainer.innerHTML = `<h2>Directions:</h2><ul>${directionsHtml}</ul><p><strong>Total Travel Time: ${totalTravelTime} minutes</strong></p>`;
