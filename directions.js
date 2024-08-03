@@ -55,8 +55,14 @@ function metersToFeet(meters) {
 function displayDirections(data) {
     const directionsContainer = document.getElementById('directionsResult');
     const steps = data.features[0].properties.segments[0].steps;
+
+    // Calculate total travel time
+    const totalDuration = steps.reduce((total, step) => total + step.duration, 0);
+    const totalTravelTime = Math.round(totalDuration / 60); // Convert seconds to minutes
+
     const directionsHtml = steps.map(step => `
         <li>${step.instruction} (${metersToFeet(step.distance)} feet, ${Math.round(step.duration / 60)} minutes)</li>
     `).join('');
-    directionsContainer.innerHTML = `<h2>Directions:</h2><ul>${directionsHtml}</ul>`;
+    
+    directionsContainer.innerHTML = `<h2>Directions:</h2><ul>${directionsHtml}</ul><p><strong>Total Travel Time: ${totalTravelTime} minutes</strong></p>`;
 }
