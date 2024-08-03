@@ -4,19 +4,19 @@ body {
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background-color: #f5f5f5; /* Fallback color */
+    background-color: #f5f5f5;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    background-image: url('images/mountain1.jpg'); /* Path to the image */
-    background-size: cover; /* Cover the entire background */
-    background-position: center; /* Center the image */
-    background-repeat: no-repeat; /* Do not repeat the image */
-    background-attachment: fixed; /* Make background fixed on scroll */
+    background-image: url('images/mountain1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 header {
-    background-color: rgba(1, 50, 32, 0.8); /* Semi-transparent background */
+    background-color: rgba(1, 50, 32, 0.8);
     color: white;
     padding: 10px 0;
     text-align: center;
@@ -36,34 +36,43 @@ nav a {
 main {
     flex: 1;
     padding: 20px;
+    background-color: rgba(173, 216, 230, 0.8); /* Light blue background */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    max-width: 800px;
     margin: 20px auto;
-    max-width: 800px; /* Ensure the content width is consistent */
 }
 
-/* Styling for weather info boxes */
-#weather-result, #forecast-result {
-    background-color: rgba(173, 216, 230, 0.8); /* Light blue with transparency */
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Slight shadow for better readability */
-    margin: 20px 0; /* Margin around the boxes */
-}
-
-/* Styling for the About page info box */
-.about-info {
-    background-color: rgba(173, 216, 230, 0.8); /* Light blue with transparency */
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Slight shadow for better readability */
-    margin: 20px 0; /* Margin around the boxes */
-}
-
-/* Footer styling */
 footer {
-    background-color: rgba(1, 50, 32, 0.9); /* Increased opacity for better visibility */
+    background-color: rgba(1, 50, 32, 0.8);
     color: white;
     text-align: center;
     padding: 10px 0;
     margin-top: auto;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3); /* Slight shadow to lift it from the background */
 }
+
+/* Directions page styling */
+.directions main {
+    background-color: rgba(173, 216, 230, 0.8); /* Same light blue background */
+}
+
+/* Update the styles for directions results */
+#directionsResult {
+    color: #333; /* Darker text color for better readability */
+    font-weight: bold; /* Makes text bold */
+    padding: 10px; /* Add some padding */
+    border: 1px solid #ccc; /* Optional: add a border for better visual separation */
+    border-radius: 5px; /* Optional: add rounded corners */
+}
+
+#directionsResult h2 {
+    color: #222; /* Darker color for headings */
+    font-size: 1.5em; /* Increase heading size if needed */
+    margin-bottom: 10px; /* Add space below the heading */
+}
+
+#directionsResult p {
+    margin: 10px 0; /* Add space around paragraphs */
+    font-size: 16px; /* Adjust size if needed */
+}
+

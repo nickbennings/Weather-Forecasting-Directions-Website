@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>5-Day Forecast</title>
+    <title>Directions</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body class="forecast">
+<body class="directions">
     <header>
-        <h1>5-Day Weather Forecast</h1>
+        <h1>Get Directions</h1>
         <nav>
             <a href="index.html">Home</a>
             <a href="forecast.html">5-Day Forecast</a>
@@ -17,15 +17,16 @@
         </nav>
     </header>
     <main>
-        <form id="forecast-form">
-            <input type="text" id="forecast-city" placeholder="Enter city name" required>
-            <button type="submit">Get 5-Day Forecast</button>
-        </form>
-        <div id="forecast-result"></div>
+        <div class="directions-info">
+            <input type="text" id="start" placeholder="Enter start address">
+            <input type="text" id="destination" placeholder="Enter destination address">
+            <button id="getDirectionsBtn">Get Directions</button>
+            <div id="directionsResult"></div>
+        </div>
     </main>
     <footer>
         <p>&copy; 2024 Weather Forecasting App</p>
     </footer>
-    <script src="forecast.js"></script>
+    <script src="directions.js"></script>
 </body>
 </html>
