@@ -1,63 +1,68 @@
-document.getElementById('getDirectionsBtn').addEventListener('click', async () => {
-    const startAddress = document.getElementById('start').value.trim();
-    const destinationAddress = document.getElementById('destination').value.trim();
+document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('forecast-form');
+    const cityInput = document.getElementById('city');
+    const forecastResult = document.getElementById('forecast-result');
 
-    if (!startAddress || !destinationAddress) {
-        document.getElementById('directionsResult').innerText = 'Please enter both start and destination addresses.';
-        return;
-    }
+    // Directly assign the API key
+    const apiKey = '897f410d6b0153cbd94dd175f70cd132';
 
-    try {
-        const startCoordinates = await geocodeAddress(startAddress);
-        const destinationCoordinates = await geocodeAddress(destinationAddress);
+    form.addEventListener('submit', async (event) => {
+        event.preventDefault();
 
-        const response = await fetch(`https://api.openrouteservice.org/v2/directions/driving-car?start=${startCoordinates.lng},${startCoordinates.lat}&end=${destinationCoordinates.lng},${destinationCoordinates.lat}`, {
-            method: 'GET',
-            headers: {
-                'Authorization': `Bearer ${OPENROUTESERVICE_API_KEY}`
-            }
-        });
+        const city = cityInput.value.trim();
 
-        if (!response.ok) {
-            throw new Error(`Error: ${response.status} ${response.statusText}`);
+        if (city === '') {
+            alert('Please enter a city name');
+            return;
         }
 
-        const data = await response.json();
-        displayDirections(data);
+        try {
+            const response = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=imperial`);
+            const data = await response.json();
 
-    } catch (error) {
-        console.error('Error fetching directions:', error);
-        document.getElementById('directionsResult').innerText = 'Error fetching directions. Please try again.';
-    }
-});
+            if (response.ok) {
+                // Aggregate the data by day
+                const dailyForecast = {};
+                data.list.forEach(forecast => {
+                    const date = new Date(forecast.dt * 1000).toLocaleDateString();
+                    if (!dailyForecast[date]) {
+                        dailyForecast[date] = {
+                            temp: 0,
+                            humidity: 0,
+                            windSpeed: 0,
+                            count: 0,
+                            description: forecast.weather[0].description,
+                            icon: forecast.weather[0].icon
+                        };
+                    }
+                    dailyForecast[date].temp += forecast.main.temp;
+                    dailyForecast[date].humidity += forecast.main.humidity;
+                    dailyForecast[date].windSpeed += forecast.wind.speed;
+                    dailyForecast[date].count++;
+                });
 
-// Function to geocode an address to coordinates
-async function geocodeAddress(address) {
-    const response = await fetch(`https://api.openrouteservice.org/geocode/search?text=${encodeURIComponent(address)}&api_key=${OPENROUTESERVICE_API_KEY}`, {
-        method: 'GET',
-        headers: {
-            'Authorization': `Bearer ${OPENROUTESERVICE_API_KEY}`
+                // Create HTML for each daily forecast
+                const forecastHtml = Object.keys(dailyForecast).map(date => {
+                    const day = dailyForecast[date];
+                    return `
+                        <div class="forecast-item">
+                            <h3>${date}</h3>
+                            <img src="https://openweathermap.org/img/wn/${day.icon}.png" alt="${day.description}">
+                            <p>Average Temperature: ${Math.round(day.temp / day.count)}°F</p>
+                            <p>Description: ${day.description}</p>
+                            <p>Average Humidity: ${Math.round(day.humidity / day.count)}%</p>
+                            <p>Average Wind Speed: ${Math.round(day.windSpeed / day.count)} m/s</p>
+                        </div>
+                    `;
+                }).join('');
+
+                forecastResult.innerHTML = `<h2>5-Day Forecast for ${city}</h2>${forecastHtml}`;
+            } else {
+                forecastResult.innerHTML = `<p>Error: ${data.message}</p>`;
+            }
+        } catch (error) {
+            console.error('Error fetching forecast data:', error);
+            forecastResult.innerHTML = 'Error: Unable to fetch forecast data';
         }
     });
-
-    if (!response.ok) {
-        throw new Error(`Error: ${response.status} ${response.statusText}`);
-    }
-
-    const data = await response.json();
-    if (!data.features.length) {
-        throw new Error('No results found for the address.');
-    }
-    const firstResult = data.features[0].geometry.coordinates;
-    return { lng: firstResult[0], lat: firstResult[1] };
-}
-
-// Function to display directions on the page
-function displayDirections(data) {
-    const directionsContainer = document.getElementById('directionsResult');
-    const steps = data.features[0].properties.segments[0].steps;
-    const directionsHtml = steps.map(step => `
-        <p style="font-weight: bold; color: #333;">${step.instruction} (${Math.round(step.distance)} meters, ${Math.round(step.duration / 60)} minutes)</p>
-    `).join('');
-    directionsContainer.innerHTML = `<h2>Directions:</h2>${directionsHtml}`;
-}
+});
