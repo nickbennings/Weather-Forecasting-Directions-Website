@@ -81,3 +81,34 @@ footer {
     font-size: 16px; /* Adjust size if needed */
 }
 
+/* General button styles */
+button,
+input[type="submit"] {
+    background-color: #007bff; /* Blue background color */
+    color: white; /* White text color */
+    border: none; /* Remove border */
+    padding: 10px 20px; /* Add padding */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 16px; /* Font size */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth transition for background color */
+}
+
+/* Smaller button styles */
+button,
+input[type="submit"] {
+    background-color: #007bff; /* Blue background color */
+    color: white; /* White text color */
+    border: none; /* Remove border */
+    padding: 5px 10px; /* Smaller padding */
+    border-radius: 3px; /* Smaller rounded corners */
+    font-size: 14px; /* Smaller font size */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth transition for background color */
+}
+
+/* Button hover effect */
+button:hover,
+input[type="submit"]:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
