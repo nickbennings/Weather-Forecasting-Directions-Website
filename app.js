@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 weatherResult.innerHTML = `
                     <h2>Weather in ${city}</h2>
                     <img src="https://openweathermap.org/img/wn/${icon}.png" alt="${description}">
-                    <p>Temperature: ${temperature}°C</p>
+                    <p>Temperature: ${temperature}°F</p>
                     <p>Description: ${description}</p>
                     <p>Humidity: ${humidity}%</p>
                     <p>Wind Speed: ${windSpeed} m/s</p>
