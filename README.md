@@ -17,7 +17,7 @@ enter a start and end location and get directions using the OpenRouteService API
 1. Enter the name of a city in the input field.
 2. Click the "Get Weather" button to retrieve the current weather information for the entered city.
 3. The current temperature and weather condition will be displayed below the input field.
-1. Enter the start and end location for direction da
+1. Enter the start and end location for direction data
 2. Click the "Get Directions" button to retrieve the current direction information for the entered locations.
 3. The directions and travel time will be displayed below the input field.
 
