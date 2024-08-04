@@ -3,7 +3,7 @@
 ## Weather Forecasting & Directions Website
 
 This is a simple website that allows users to input a city name and retrieve the current weather information using the OpenWeatherMap API. Also users can 
-enter a start and end location and get directions using the OpenRouteService API. 
+enter a start and end location and get direction information using the OpenRouteService API. 
 
 ### Features
 - Input field to enter a city name for weather data
