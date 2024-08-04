@@ -42,21 +42,26 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
 
                 // Create HTML for each daily forecast
-                const forecastHtml = Object.keys(dailyForecast).map(date => {
-                    const day = dailyForecast[date];
-                    return `
-                        <div class="forecast-item">
-                            <h3>${date}</h3>
-                            <img src="https://openweathermap.org/img/wn/${day.icon}.png" alt="${day.description}">
-                            <p>Average Temperature: ${Math.round(day.temp / day.count)}°F</p>
-                            <p>Description: ${day.description}</p>
-                            <p>Average Humidity: ${Math.round(day.humidity / day.count)}%</p>
-                            <p>Average Wind Speed: ${Math.round(day.windSpeed / day.count)} m/s</p>
-                        </div>
-                    `;
-                }).join('');
+                const forecastHtml = `
+                    <h2>5-Day Forecast for ${city}</h2>
+                    <div class="forecast-container">
+                        ${Object.keys(dailyForecast).map(date => {
+                            const day = dailyForecast[date];
+                            return `
+                                <div class="forecast-item">
+                                    <h3>${date}</h3>
+                                    <img src="https://openweathermap.org/img/wn/${day.icon}.png" alt="${day.description}">
+                                    <p>Average Temperature: ${Math.round(day.temp / day.count)}°F</p>
+                                    <p>Description: ${day.description}</p>
+                                    <p>Average Humidity: ${Math.round(day.humidity / day.count)}%</p>
+                                    <p>Average Wind Speed: ${Math.round(day.windSpeed / day.count)} m/s</p>
+                                </div>
+                            `;
+                        }).join('')}
+                    </div>
+                `;
 
-                forecastResult.innerHTML = `<h2>5-Day Forecast for ${city}</h2>${forecastHtml}`;
+                forecastResult.innerHTML = forecastHtml;
             } else {
                 forecastResult.innerHTML = `<p>Error: ${data.message}</p>`;
             }
