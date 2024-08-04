@@ -1,84 +1,85 @@
 /* General Styles Page */
 body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
-    background-color: #f5f5f5;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    background-image: url('images/mountain1.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    font-family: Arial, sans-serif; /* Sets the default font for the page */
+    line-height: 1.6; /* Line height for readability */
+    margin: 0; /* Removes default margin */
+    padding: 0; /* Removes default padding */
+    background-color: #f5f5f5; /* Light grey background color */
+    min-height: 100vh; /* Ensures the body takes at least the full height of the viewport */
+    display: flex; /* Enables flexbox layout */
+    flex-direction: column; /* Stacks children vertically */
+    background-image: url('images/mountain1.jpg'); /* Background image for the body */
+    background-size: cover; /* Ensures the image covers the entire area */
+    background-position: center; /* Centers the background image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    background-attachment: fixed; /* Keeps the background image fixed during scroll */
 }
 
 header {
-    background-color: rgba(1, 50, 32, 0.8);
-    color: white;
-    padding: 10px 0;
-    text-align: center;
+    background-color: rgba(1, 50, 32, 0.8); /* Dark green background with transparency */
+    color: white; /* White text color */
+    padding: 10px 0; /* Vertical padding */
+    text-align: center; /* Centers the text */
 }
 
 nav {
-    margin-top: 10px;
+    margin-top: 10px; /* Adds space above the navigation */
 }
 
 nav a {
-    color: white;
-    margin: 0 10px;
-    text-decoration: none;
-    font-size: 18px;
+    color: white; /* White color for links */
+    margin: 0 10px; /* Spacing between links */
+    text-decoration: none; /* Removes underline from links */
+    font-size: 18px; /* Font size for navigation links */
 }
 
 main {
-    flex: 1;
-    padding: 20px;
+    flex: 1; /* Allows main to grow and fill the remaining space */
+    padding: 20px; /* Padding inside the main section */
     background-color: rgba(173, 216, 230, 0.8); /* Light blue background */
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    max-width: 800px;
-    margin: 20px auto;
+    border-radius: 10px; /* Rounded corners for main section */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Shadow for a 3D effect */
+    max-width: 800px; /* Maximum width for main content */
+    margin: 20px auto; /* Centers the main content horizontally */
 }
+
 .about-main {
-    max-width: 600px; /* Adjust width as needed */
-    padding: 15px; /* Adjust padding as needed */
-    margin: 20px auto; /* Center and adjust margin */
+    max-width: 600px; /* Limits the width of the about-main section */
+    padding: 15px; /* Padding inside the about-main section */
+    margin: 20px auto; /* Centers and adds margin above and below */
 }
 
 footer {
-    background-color: rgba(1, 50, 32, 0.8);
-    color: white;
-    text-align: center;
-    padding: 10px 0;
-    margin-top: auto;
+    background-color: rgba(1, 50, 32, 0.8); /* Dark green background with transparency */
+    color: white; /* White text color */
+    text-align: center; /* Centers the text */
+    padding: 10px 0; /* Vertical padding */
+    margin-top: auto; /* Pushes the footer to the bottom */
 }
 
 /* Directions page styling */
 .directions main {
-    background-color: rgba(173, 216, 230, 0.8); /* Same light blue background */
+    background-color: rgba(173, 216, 230, 0.8); /* Same light blue background as main */
 }
 
 /* Update the styles for directions results */
 #directionsResult {
     color: #333; /* Darker text color for better readability */
     font-weight: bold; /* Makes text bold */
-    padding: 10px; /* Add some padding */
-    border: 1px solid #ccc; /* Optional: add a border for better visual separation */
-    border-radius: 5px; /* Optional: add rounded corners */
+    padding: 10px; /* Adds padding inside the element */
+    border: 1px solid #ccc; /* Adds a border for visual separation */
+    border-radius: 5px; /* Rounded corners for a softer look */
 }
 
 #directionsResult h2 {
     color: #222; /* Darker color for headings */
-    font-size: 1.5em; /* Increase heading size if needed */
-    margin-bottom: 10px; /* Add space below the heading */
+    font-size: 1.5em; /* Larger font size for headings */
+    margin-bottom: 10px; /* Space below the heading */
 }
 
 #directionsResult p {
-    margin: 10px 0; /* Add space around paragraphs */
-    font-size: 16px; /* Adjust size if needed */
+    margin: 10px 0; /* Space around paragraphs */
+    font-size: 16px; /* Font size for paragraphs */
 }
 
 /* General button styles */
@@ -86,10 +87,10 @@ button,
 input[type="submit"] {
     background-color: #007bff; /* Blue background color */
     color: white; /* White text color */
-    border: none; /* Remove border */
-    padding: 10px 20px; /* Add padding */
-    border-radius: 5px; /* Rounded corners */
-    font-size: 16px; /* Font size */
+    border: none; /* Removes border */
+    padding: 10px 20px; /* Padding for buttons */
+    border-radius: 5px; /* Rounded corners for buttons */
+    font-size: 16px; /* Font size for buttons */
     cursor: pointer; /* Pointer cursor on hover */
     transition: background-color 0.3s; /* Smooth transition for background color */
 }
@@ -99,8 +100,8 @@ button,
 input[type="submit"] {
     background-color: #007bff; /* Blue background color */
     color: white; /* White text color */
-    border: none; /* Remove border */
-    padding: 5px 10px; /* Smaller padding */
+    border: none; /* Removes border */
+    padding: 5px 10px; /* Smaller padding for smaller buttons */
     border-radius: 3px; /* Smaller rounded corners */
     font-size: 14px; /* Smaller font size */
     cursor: pointer; /* Pointer cursor on hover */
