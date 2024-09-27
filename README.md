@@ -45,6 +45,7 @@ enter a start and end location and get direction information using the OpenRoute
 - Node.js
 - Express
 - OpenWeatherMap API
+- OpenRouteServie API
 
 ### Credits
 This project was created by Nick Bennings.
